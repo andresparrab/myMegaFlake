@@ -38,6 +38,8 @@ in
           };
         };                                                  # Pass flake variable
         home-manager.users.${user} = {
+
+        home.stateVersion = "22.11";
          # imports = [(import ./home.nix)] ++ [(import ./desktop/home.nix)];
         };
      }

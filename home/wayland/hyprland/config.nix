@@ -4,11 +4,11 @@
   default,
   ...
 }: let
-  inherit (default) colors;
+#  inherit (default) colors;
 
-  pointer = config.home.pointerCursor;
+#  pointer = config.home.pointerCursor;
 
-  emoji = "${pkgs.wofi-emoji}/bin/wofi-emoji";
+#  emoji = "${pkgs.wofi-emoji}/bin/wofi-emoji";
   launcher = "wofi";
 in {
   wayland.windowManager.hyprland.extraConfig = ''
@@ -26,10 +26,9 @@ in {
     exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
     # set cursor for HL itself
-    exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
 
-    exec-once = systemctl --user start clight
-    exec-once = eww open bar
+#    exec-once = systemctl --user start clight
+#   exec-once = eww open bar
 
     misc {
       # enable Variable Frame Rate
@@ -65,8 +64,8 @@ in {
       gaps_in = 5
       gaps_out = 5
       border_size = 2
-      col.active_border = rgb(${colors.blue}) rgb(${colors.mauve}) 270deg
-      col.inactive_border = rgb(${colors.crust}) rgb(${colors.lavender}) 270deg
+#      col.active_border = rgb(${colors.blue}) rgb(${colors.mauve}) 270deg
+#      col.inactive_border = rgb(${colors.crust}) rgb(${colors.lavender}) 270deg
     }
 
     decoration {
@@ -98,8 +97,8 @@ in {
       preserve_split = 1
 
       # group borders
-      col.group_border_active = rgb(${colors.pink})
-      col.group_border = rgb(${colors.surface0})
+#      col.group_border_active = rgb(${colors.pink})
+#      col.group_border = rgb(${colors.surface0})
     }
 
     # telegram media viewer

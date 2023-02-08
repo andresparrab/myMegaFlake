@@ -4,7 +4,6 @@
   default,
   ...
 }: let
-#  inherit (default) colors;
 
 #  pointer = config.home.pointerCursor;
 
@@ -64,8 +63,6 @@ in {
       gaps_in = 5
       gaps_out = 5
       border_size = 2
-#      col.active_border = rgb(${colors.blue}) rgb(${colors.mauve}) 270deg
-#      col.inactive_border = rgb(${colors.crust}) rgb(${colors.lavender}) 270deg
     }
 
     decoration {
@@ -91,15 +88,13 @@ in {
       animation = workspaces, 1, 2, default, slide
     }
 
-    dwindle {
-      # keep floating dimentions while tiling
-      pseudotile = 1
-      preserve_split = 1
-
-      # group borders
-#      col.group_border_active = rgb(${colors.pink})
-#      col.group_border = rgb(${colors.surface0})
-    }
+#    dwindle {
+#      # keep floating dimentions while tiling
+#      pseudotile = 1
+#      preserve_split = 1
+#
+#      # group borders
+#    }
 
     # telegram media viewer
     windowrulev2 = float, title:^(Media viewer)$
@@ -159,7 +154,6 @@ in {
     # lock screen
     bind = $mod, L, exec, loginctl lock-session
     # emoji picker
-    bind = $mod, E, exec, ${emoji}
     # select area to perform OCR on
     bind = $mod, O, exec, run-as-service wl-ocr
 

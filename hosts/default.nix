@@ -32,7 +32,7 @@ in
         home-manager.extraSpecialArgs = {
           inherit user;
           host = {
-            hostName = "desktop";     #For Xorg iGPU  | Videocard 
+            hostName = "myLaptop";     #For Xorg iGPU  | Videocard 
             mainMonitor = "HDMI-A-3"; #HDMIA3         | HDMI-A-1
             secondMonitor = "DP-1";   #DP1            | DisplayPort-1
           };
@@ -41,7 +41,7 @@ in
 
         home.stateVersion = "22.11";
          # imports = [(import ./home.nix)] ++ [(import ./desktop/home.nix)];
-          imports = [../home/wayland];
+         # imports = [../home/wayland];
         };
      }
 

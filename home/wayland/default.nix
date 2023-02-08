@@ -16,7 +16,7 @@ let
     '';
 in {
   imports = [
-    ../programs/eww
+#    ../programs/eww
     ./hyprland
     ./sway.nix
     ./swaybg.nix

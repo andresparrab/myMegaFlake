@@ -26,6 +26,7 @@ in
     ./configuration.nix
     #./laptop
     hyprland.nixosModules.default                      #setting upp hyperland
+
     home-manager.nixosModules.home-manager {          # Home-Manager module that is used.
        home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;

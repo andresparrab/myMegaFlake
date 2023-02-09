@@ -15,14 +15,14 @@ let
       ${_ libnotify} "$(${wl-clipboard}/bin/wl-paste)"
     '';
 in {
-#  imports = [
+  imports = [
 #    ../programs/eww
 #    ./hyprland
 #    ./sway.nix
-    ./swaybg.nix
+#    ./swaybg.nix
 #    ./swayidle.nix
     ./swaylock.nix
-#  ];
+  ];
 
   home.packages = with pkgs; [
     # screenshot

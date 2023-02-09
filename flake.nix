@@ -12,6 +12,10 @@ description = "fufexan's NixOS and Home-Manager flake";
       hyprpicker.url = "github:hyprwm/hyprpicker";
       hypr-contrib.url = "github:hyprwm/contrib";
       flake-utils.url = "github:numtide/flake-utils";
+      nixgl = {                                                             # OpenGL
+        url = "github:guibou/nixGL";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
       hyprland = {
         url = "github:hyprwm/Hyprland";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +28,7 @@ description = "fufexan's NixOS and Home-Manager flake";
 #
 #
 #
-outputs = inputs @ { self, nixpkgs, home-manager, hyprland, hyprpicker, hypr-contrib, flake-utils, ... }:
+outputs = inputs @ { self, nixpkgs, home-manager, hyprland, hyprpicker, hypr-contrib, flake-utils, nixgl, ... }:
    let                                                                     # Variables that can be used in the config files.
      user = "loco";
      location = "$HOME/.setup";

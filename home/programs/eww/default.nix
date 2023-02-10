@@ -6,7 +6,7 @@
   ...
 }: let
   dependencies = with pkgs; [
-    config.wayland.windowManager.hyprland.package
+#    config.wayland.windowManager.hyprland.package
     config.programs.eww.package
     bash
     bc

@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  default,
+#  default,
   ...
 }: let
 
@@ -10,7 +10,7 @@
 #  emoji = "${pkgs.wofi-emoji}/bin/wofi-emoji";
   launcher = "wofi";
 in {
-  wayland.windowManager.hyprland.extraConfig = ''
+ hyprland.extraConfig = ''
     $mod = SUPER
 
     # should be configured per-profile
@@ -148,7 +148,7 @@ in {
     # launcher
     bindr = $mod, SUPER_L, exec, pkill .${launcher}-wrapped || run-as-service ${launcher}
     # terminal
-    bind = $mod, Return, exec, run-as-service ${default.terminal.name}
+    bind = $mod, Return, exec, run-as-service kitty 
     # logout menu
     bind = $mod, Escape, exec, wlogout -p layer-shell
     # lock screen

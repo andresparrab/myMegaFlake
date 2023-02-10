@@ -1,5 +1,5 @@
 
-{ lib, inputs, nixpkgs, home-manager, user, location,  hyprland, ... }:
+{ lib, inputs, nixpkgs, home-manager, user, location,  hyprland, eww, ... }:
 
 let
   system = "x86_64-linux";                                  # System architecture
@@ -31,18 +31,19 @@ in
        home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
-          inherit user;
+          inherit inputs user hyprland; # hypr-contrib;
           host = {
             hostName = "myLaptop";     #For Xorg iGPU  | Videocard 
             mainMonitor = "HDMI-A-3"; #HDMIA3         | HDMI-A-1
             secondMonitor = "DP-1";   #DP1            | DisplayPort-1
           };
-        };                                                  # Pass flake variable
+        };
         home-manager.users.${user} = {
-
+       
         home.stateVersion = "22.11";
-         # imports = [(import ./home.nix)] ++ [(import ./desktop/home.nix)];
-          imports = [../home/wayland];
+          imports = [(import ./home.nix)] ++ 
+           #[(import ./desktop/home.nix)];
+           [(import ../home/wayland)];
         };
      }
 

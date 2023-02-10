@@ -16,6 +16,17 @@ description = "fufexan's NixOS and Home-Manager flake";
         url = "github:guibou/nixGL";
         inputs.nixpkgs.follows = "nixpkgs";
       };
+      eww = {
+        url = "github:elkowar/eww";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.rust-overlay.follows = "rust-overlay";
+      };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "fu";
+    };
+    fu.url = "github:numtide/flake-utils";
       hyprland = {
         url = "github:hyprwm/Hyprland";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +39,7 @@ description = "fufexan's NixOS and Home-Manager flake";
 #
 #
 #
-outputs = inputs @ { self, nixpkgs, home-manager, hyprland, hyprpicker, hypr-contrib, flake-utils, nixgl, ... }:
+outputs = inputs @ { self, nixpkgs, home-manager, hyprland, hyprpicker, hypr-contrib, flake-utils, nixgl, eww, ... }:
    let                                                                     # Variables that can be used in the config files.
      user = "loco";
      location = "$HOME/.setup";
@@ -37,7 +48,7 @@ outputs = inputs @ { self, nixpkgs, home-manager, hyprland, hyprpicker, hypr-con
       nixosConfigurations = (                                               # NixOS configurations
         import ./hosts {                                                    # Imports ./hosts/default.nix
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager user location hyprland;   # Also inherit home-manager so it does not need to be defined here.
+          inherit inputs nixpkgs home-manager user location hyprland eww nixgl;   # Also inherit home-manager so it does not need to be defined here.
         }
       );
 };

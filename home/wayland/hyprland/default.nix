@@ -4,12 +4,12 @@
   pkgs,
   ...
 }: {
-  imports = [./config.nix];
+#  imports = [./config.nix];
 
   home.packages = with pkgs; [
     jaq
     xorg.xprop
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
   ];
 
 #  home.sessionVariables = {
@@ -18,8 +18,8 @@
 #  };
 
   # start swayidle as part of hyprland, not sway
- # systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
 
   # enable hyprland
-#  wayland.windowManager.hyprland.enable = true;
+  #wayland.windowManager.hyprland.enable = true;
 }

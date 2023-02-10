@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  default,
   ...
 }: {
   systemd.user.services.swaybg = {
@@ -10,7 +9,7 @@
       PartOf = ["graphical-session.target"];
     };
     Service = {
-      ExecStart = "${lib.getExe pkgs.swaybg} -i ${default.wallpaper} -m fill";
+      ExecStart = "${lib.getExe pkgs.swaybg} -i ${./1123013.jpg} -m fill";
       Restart = "on-failure";
     };
     Install.WantedBy = ["graphical-session.target"];

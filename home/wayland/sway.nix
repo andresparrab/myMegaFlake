@@ -3,7 +3,7 @@
   pkgs,
   lib,
   inputs,
-  default,
+#  default,
   ...
 }: {
   wayland.windowManager.sway = {
@@ -14,7 +14,7 @@
         m = config.wayland.windowManager.sway.config.modifier;
       in
         lib.mkOptionDefault {
-          "${m}+Return" = "exec ${default.terminal.name}";
+ #         "${m}+Return" = "exec ${default.terminal.name}";
           "${m}+q" = "kill";
           "${m}+space" = "exec wofi";
           "${m}+t" = "floating toggle";
@@ -39,7 +39,7 @@
       };
 
       menu = "wofi";
-      terminal = default.terminal.name;
+#      terminal = default.terminal.name;
       modifier = "Mod4";
       bars = [];
 

@@ -16,12 +16,12 @@ let
     '';
 in {
   imports = [
-#    ../programs/eww
-#    ./hyprland
+    ../programs/eww
+    ./hyprland
 #    ./sway.nix
-#    ./swaybg.nix
+    ./swaybg.nix
 #    ./swayidle.nix
-    ./swaylock.nix
+#    ./swaylock.nix
   ];
 
   home.packages = with pkgs; [
